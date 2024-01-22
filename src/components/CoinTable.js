@@ -235,6 +235,7 @@ const CoinTable = () => {
               display: `${coins.length == 0 ? "none" : "flex"}`,
               justifyContent: "center",
               marginRight: "auto",
+              marginTop : "auto"
             }}
             onChange={(e, p) => setPage(p)}
           />
