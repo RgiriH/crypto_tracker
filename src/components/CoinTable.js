@@ -114,7 +114,9 @@ const CoinTable = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <TableContainer>
+        <TableContainer style={{
+          height : "100%",
+        }}>
           {loading ? (
             <LinearProgress />
           ) : (
