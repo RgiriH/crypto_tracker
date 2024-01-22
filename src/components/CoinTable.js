@@ -84,6 +84,7 @@ const CoinTable = () => {
             justifyContent: "space-around",
             background:
               "linear-gradient(00deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 50) 51.2%, rgb(0, 0, 10) 98.6%)",
+            height : "100%"
           }}
         >
           <Typography
