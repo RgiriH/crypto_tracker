@@ -7,7 +7,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { TableCell } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { numberWithCommas } from "./carousel";
-import {Pagination }from "@mui/material";
+import { Pagination } from "@mui/material";
+
 
 const darkTheme = createTheme({
   palette: {
@@ -17,29 +18,13 @@ const darkTheme = createTheme({
 
 
 const CoinTable = () => {
-    const [coins, setCoins] = useState([])
-    const [loading, setLoading] = useState(false)
+    
     const [search,setSearch] = useState("")
-    const { currency, symbol } = GetContext()
+    const { currency, symbol, coins, loading, FectchCoins } = GetContext();
     const [page, setPage] = useState(1)
     const [count,setCount] = useState(10)
     
-    const FectchCoins = async () => {
-        setLoading(true)
-
-        try {
-             const { data } = await axios.get(CoinList(currency.toLowerCase()));
-             console.log(data);
-            setCoins(data);
-            setLoading(false)
-            
-        } catch (error) {
-            //alert("SORRY..! the maximum API request reached try later")
-            console.log(error)
-            setLoading(false)
-        }
-       
-    }
+  
 
     useEffect(() => {
        FectchCoins()

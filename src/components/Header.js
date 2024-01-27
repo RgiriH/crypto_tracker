@@ -12,6 +12,8 @@ import {
 import { createTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { GetContext } from "../CryptoContext";
+import AuthModel from "../authentication/AuthModel";
+import UserSideBar from "../authentication/UserSideBar";
 
 
 const useStyles = makeStyles(() => ({
@@ -32,7 +34,7 @@ const darkTheme = createTheme({
 
 const Header = () => {
     
-    const { currency ,setCurrency , symbol} = GetContext();
+    const { currency ,setCurrency , symbol , user} = GetContext();
     const navigate = useNavigate()
     const classes = useStyles()
 
@@ -56,9 +58,14 @@ const Header = () => {
                 }}
                 value={currency}
               >
-                <MenuItem value={"INR"} onClick = {() => setCurrency("INR")}>INR</MenuItem>
-                <MenuItem value={"USD"} onClick={() => setCurrency("USD")}>USD</MenuItem>
+                <MenuItem value={"INR"} onClick={() => setCurrency("INR")}>
+                  INR
+                </MenuItem>
+                <MenuItem value={"USD"} onClick={() => setCurrency("USD")}>
+                  USD
+                </MenuItem>
               </Select>
+              {user ? <UserSideBar/>: <AuthModel />}
             </Toolbar>
           </Container>
         </AppBar>
